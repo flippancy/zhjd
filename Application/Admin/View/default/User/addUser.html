@@ -1,0 +1,53 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/plugins/metisMenu.min.js"></script>
+<script src="__JS__/plugins/jquery.dataTables.js"></script>
+<script src="__JS__/plugins/dataTables.bootstrap.js"></script>
+<script>
+    $(function () {
+        $(':checkbox[name="group[]"]').click(function () {
+            $(':checkbox', $(this).closest('li')).prop('checked', this.checked);
+        });
+
+        $('#backid').click(function(){
+                window.location.href="index.html";
+         });
+    });
+</script>
+</block>
+<block name="main-content">
+<div class="col-lg-12">
+      <h1 class="page-header">添加用户</h1>
+</div>
+<form action="{:U('User/addUser')}" method="post" class="definewidth m20">
+    <table class="table table-bordered table-hover definewidth m10">
+        <tbody>
+        <tr>
+            <td width="10%" class="tableleft">用户名称</td>
+            <td><input type="text" name="username" required="required"></td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">登录名</td>
+            <td><input type="text" name="loginname" required="required"></td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">密码</td>
+            <td><input type="password" name="password" required="required"></td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">用户类型</td><td>
+            <select id="user-type" name="usertype" class="form-control input_width">
+                    <option value="ADMIN">管理员</option>
+                    <option value="STORE">商家</option>
+                    <option value="USER">用户</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                <button type="submit" class="btn btn-primary">确定</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            </td>
+        </tr>
+    </tbody></table>
+</form>
+</block>

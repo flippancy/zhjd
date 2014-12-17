@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="__CSS__/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="__CSS__/theme.css">
+</head>
+<body>
+
+
+<div data-role="page">
+  <div data-role="header" id="header" data-theme="b" data-position="fixed"> 
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all"></a>
+
+    <h1><block name="room_name"></block></h1>
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-home"></a>
+  </div>
+
+  	<div style="width:100%;height:250px;background:black;">
+  		<img src="<block name="room_cover"></block>" alt="" style="width:100%;height:100%;">
+  	</div>
+
+  <div data-role="content" id="content">
+
+	<div id="price" style="color:orange;font-size:2.0em;" >
+		<p>￥<block name="room_price"></block><a href="#" class="ui-btn ui-btn-inline ui-corner-all" href="tel:12345678901" style="float:right;">预定电话</a></p>
+	</div>
+	<div id="info">
+		<div width="100%" style="overflow:hidden; zoom:1;">
+                    <div style="width:30%;padding-left:5%;float:left;">
+                    <p style="float:left;font-size:0.9em;padding-left:3px;">早餐: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="breakfast"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">wifi: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="wifi"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">电脑: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="computer"></block></p>
+                    </div>
+                    <div style="width:30%;padding-left:5%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">可住: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="canlive"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">面积: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="square"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">楼层: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="floor"></block></p>
+                    </div>
+                    <div style="width:30%;padding-left:5%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">窗: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="window"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">浴缸: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="bath"></block></p>
+                    </div>
+                    <div style="width:30%;float:left;">
+                            <p style="float:left;font-size:0.9em;padding-left:3px;">床: </p><p style="color:#ADADAD;float:left;font-size:0.9em;padding-left:3px;"><block name="bed"></block></p>
+                    </div>
+                </div>
+	</div><hr>
+	<div id="detail">
+		<div data-role="collapsible" data-content-theme="false">
+    		<h4>更多信息</h4>
+    		<block name="room_more"></block>
+		</div>
+	</div>
+  </div><!-- content -->
+
+  <div data-role="footer" id="footer">
+    <h1>@{$name}</h1>
+  </div>
+</div>
+<script src="__JS__/jquery-2.1.1.min.js"></script>
+<script src="__JS__/jquery.mobile-1.4.5.min.js"></script>
+<script src="__JS__/base.js"></script>
+</body>
+</html>

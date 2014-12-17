@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="__CSS__/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="__CSS__/theme.css">
+</head>
+<body>
+
+
+<div data-role="page">
+  <div data-role="header" id="header" data-theme="b" data-position="fixed"> 
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all"></a>
+
+    <h1>餐厅信息</h1>
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-home"></a>
+  </div>
+
+  <div data-role="content" id="content">
+  <center><h2><block name="res_name"></block></h2></center>
+      <article>
+        <img src="" alt="">
+        <table width="100%" border="0.5" bordercolor="#DAD5A3">
+        <tbody>
+          <tr>
+            <th bgcolor="#ede9d6" width="30%">
+              <p style="text-align:center;font-size:80%;color:#938364;">
+                营业时间
+              </p>
+            </th>
+            <th bgcolor="#f4f3ef" width="70%">
+              <p style="text-align:center;font-size:80%;color:#938364;margin-left:10px;">
+              <block name="res_time"></block>
+              </p>
+            </th>
+          </tr>
+     
+          <tr>
+            <th bgcolor="#ede9d6" width="30%">
+              <p style="text-align:center;font-size:80%;color:#938364;">
+                地址 
+              </p>
+            </th>
+            <th bgcolor="#f4f3ef" width="70%">
+              <p style="font-size:80%;color:#938364;text-align:left;margin-left:10px;">
+              	<block name="res_location"></block>
+              </p>
+            </th>
+          </tr>
+          <tr>
+            <th bgcolor="#ede9d6" width="30%">
+              <p style="text-align:center;font-size:80%;color:#938364;">
+                特色
+              </p>
+            </th>
+            <th bgcolor="#f4f3ef" width="70%">
+              <p style="font-size:80%;color:#938364;text-align:left;margin-left:10px;">
+              	<block name="res_feature"></block>
+              </p>
+            </th>
+          </tr>
+               <tr>
+            <th bgcolor="#ede9d6" width="30%">
+              <p style="text-align:center;font-size:80%;color:#938364;">
+                注意事项
+              </p>
+            </th>
+            <th bgcolor="#f4f3ef" width="70%">
+              <p style="font-size:80%;color:#938364;text-align:left;margin-left:10px;">
+              <block name="res_notice"></block>
+              </p>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <block name="res_more"></block>
+      </article>
+
+  </div><!-- content -->
+
+  <div data-role="footer" id="footer">
+    <h1>©{$name}</h1>
+  </div>
+</div>
+<script src="__JS__/jquery-2.1.1.min.js"></script>
+<script src="__JS__/jquery.mobile-1.4.5.min.js"></script>
+<script src="__JS__/base.js"></script>
+</body>
+</html>

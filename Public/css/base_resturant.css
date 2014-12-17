@@ -1,0 +1,119 @@
+.my-page .ui-listview li .ui-btn p {
+    color: #c0c0c0;
+}
+.my-page .ui-listview li .ui-btn .ui-li-aside {
+    color: #eee;
+}
+@media ( min-width: 48em ) {
+    .my-page .ui-content {
+        padding: .5625em;
+    }
+    .my-page .ui-listview li {
+        float: left;
+        width: 30.9333%;
+        height: 14.5em;
+        margin: .5625em 1.2%;
+    }
+    .my-page .ui-listview li > .ui-btn {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 100%;
+    }
+    .my-page .ui-listview li.ui-li-has-thumb .ui-li-thumb {
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+    }
+    .my-page .ui-listview li,
+    .my-page .ui-listview li .ui-btn,
+    .my-page .ui-listview .ui-li-thumb {
+        -webkit-border-radius: inherit;
+        border-radius: inherit;
+    }
+    .my-page .ui-listview .ui-btn-icon-right:after {
+        display: none;
+    }
+    .my-page .ui-listview h2,
+    .my-page .ui-listview p {
+        white-space: normal;
+        overflow: visible;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    .my-page .ui-listview h2 {
+        font-size: 1.25em;
+        margin: 0;
+        padding: .125em 1em;
+        bottom: 50%;
+    }
+    .my-page .ui-listview p {
+        font-size: 1em;
+        margin: 0;
+        padding: 0 1.25em;
+        min-height: 50%;
+        bottom: 0;
+    }
+    .ui-listview .ui-li-has-thumb h2,
+    .ui-listview .ui-li-has-thumb p {
+        background: #111;
+        background: rgba(0,0,0,.8);
+    }
+    .ui-listview .ui-li-has-thumb h2 {
+        bottom: 35%;
+    }
+    .ui-listview .ui-li-has-thumb p {
+        min-height: 35%;
+    }
+    .my-page .ui-listview .ui-li-aside {
+        padding: .125em .625em;
+        width: auto;
+        min-height: 0;
+        top: 0;
+        left: auto;
+        bottom: auto;
+        /* Custom styling. */
+        background: #990099;
+        background: rgba(153,0,153,.85);
+        -webkit-border-top-right-radius: inherit;
+        border-top-right-radius: inherit;
+        -webkit-border-bottom-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        -webkit-border-bottom-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .my-page .ui-listview li {
+        -moz-box-shadow: 0px 0px 9px #111;
+        -webkit-box-shadow: 0px 0px 9px #111;
+        box-shadow: 0px 0px 9px #111;
+    }
+    .my-page .ui-listview li > .ui-btn:hover {
+        -moz-box-shadow: 0px 0px 12px #33ccff;
+        -webkit-box-shadow: 0px 0px 12px #33ccff;
+        box-shadow: 0px 0px 12px #33ccff;
+    }
+    .my-page .ui-listview li,
+    .my-page .ui-listview .ui-btn {
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        -ms-transition: all 500ms ease;
+        transition: all 500ms ease;
+    }
+}
+@media ( min-width: 63.75em ) {
+    .my-page .ui-content {
+        padding: .625em; /* 10px */
+    }
+    .my-page .ui-listview {
+        max-width: 62.5em; /* 1000px */
+        margin: 0 auto;
+    }
+    .my-page .ui-listview li {
+        width: 23%;
+        height: 230px;
+        margin: .625em 1%;
+    }
+}

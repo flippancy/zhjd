@@ -1,0 +1,61 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/common/setCover.js"></script>
+<script src="__JS__/common/postEdit.js"></script>
+<script>
+$(document).ready(function(){
+	$("#file0").change(function(){
+		var objUrl = getObjectURL(this.files[0]) ;
+		console.log("objUrl = "+objUrl) ;
+		if (objUrl) {
+			$("#img0").attr("src", objUrl);
+			$("#preview").fadeIn(2000).css("display","block");
+		}
+	});
+});
+
+function getObjectURL(file) {
+	var url = null ; 
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+</block>
+		<block name="main-content">	
+	      <div class="row">
+	        <h2>添加图片</h2>
+	            <form action="__URL__/upload?place={$place}" enctype="multipart/form-data" method="post" >
+	            <div class="row">
+	            	<div class="col-sm-6">
+	            	<label for="img_title">图片标题</label>
+	            	<input type="text" name="img_title" required="required"><br>
+				    <input type="file" name="img_file"required="required" id="file0">
+				    <input type="checkbox" name="img_cover" value="1"/>景点封面<br><br>
+				    <input class="btn btn-primary" type="submit" value="提交"></div>
+				    <div class="col-sm-6">
+				    <img src="__UPLOADS__/{$img_cover}" alt="" style="border:1px solid black;width:240px;height:240px;">
+				    <p>景点封面</p>
+				    </div>
+				</div>
+			    </form>
+			    <div style="display:none;" id="preview">
+			    	<h4>图片预览</h4>
+			    	<img src="" id="img0" style="width:320px;height:320px;">
+			    </div>
+			    <h2>相册</h2>
+			    <volist name="img_arr" id="vo">
+			    	<div class="col-sm-4">
+			    		<img src="__UPLOADS__/{$vo.img_url}" alt="" style="width:320px;height:320px;">
+			    		<p align="center">{$vo.img_title} (<a href="__URL__/delete?place={$place}&target=Photos&key={$key}">删除</a>)</p>
+			    	</div>
+			    </volist>
+	      </div>
+	      <!-- end 图片信息 -->
+</block>
+

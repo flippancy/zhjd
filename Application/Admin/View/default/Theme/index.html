@@ -1,0 +1,46 @@
+<extend name="Public/admin"/>
+<block name="extra-js">
+<script>
+	$(document).ready(function(){
+		$("input[name=themeOption][value={$place_theme}]").attr("checked",true);
+	});
+</script>
+</block>
+<block name='main-content'>
+<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">主题编辑</h1>
+        </div>
+  </div>
+    <div class="row">
+    <form action="__URL__/chooseTheme" method="post">
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="themeOption" id="optionsRadios1" value="blue" >
+		    蓝色
+		  </label>
+		</div>
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="themeOption" id="optionsRadios1" value="circle" >
+		    圆
+		  </label>
+		</div>
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="themeOption" id="optionsRadios2" value="green">
+		    绿色
+		  </label>
+		</div>
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="themeOption" id="optionsRadios3" value="orange">
+		    橙色
+		  </label>
+		</div>
+		<div>
+			<button class="btn btn-primary" type="submit">确定</button>
+		</div>
+	</form>
+	</div>
+</block>

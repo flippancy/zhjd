@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="__CSS__/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="__CSS__/swipebox.min.css">
+<link rel="stylesheet" href="__CSS__/theme.css">
+<style>
+  ul {list-style-type: none;}
+  img {width:100%;}
+</style>
+</head>
+<body>
+
+
+<div data-role="page">
+  <div data-role="header" id="header" data-theme="b" data-position="fixed">
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all"></a>
+
+    <h1>相册</h1>
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-home"></a>
+  </div>
+
+  <div data-role="content" id="content">
+	 <section id="exemple" class="container">
+    <div class="wrap small-width">
+      <div id="try"></div>
+      <ul id="box-container">
+        <block name="images"></block>
+      </ul>
+    </div>
+  </section>
+  </div><!-- content -->
+
+  <div data-role="footer" id="footer">
+    <h1>©景点名字</h1>
+  </div>
+</div>
+<script src="__JS__/jquery-2.1.1.min.js"></script>
+<script src="__JS__/jquery.mobile-1.4.5.min.js"></script>
+<script src="__JS__/base.js"></script>
+<script src="__JS__/jquery.swipebox.min.js"></script>
+<script type="text/javascript">
+    ;( function( $ ) {
+      $( '.swipebox' ).swipebox();
+    } )( jQuery );
+</script>
+</body>
+</html>

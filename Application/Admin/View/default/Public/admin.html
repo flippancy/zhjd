@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/plugins/metisMenu.min.css">
+	<link rel="stylesheet" href="__CSS__/admin.css">
+	<link rel="stylesheet" href="__PUBLIC__/font-awesome/css/font-awesome.min.css">
+    <block name="extra-css"></block>
+	<script src="__JS__/jquery-2.1.1.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/admin.js"></script>
+<script src="__JS__/plugins/metisMenu.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#{$MODELID}").addClass("active");
+	$("#{$MODELID}").parents("li").addClass("active");
+	$("#{$MODELID}").parents("ul").addClass('in');
+	$("#OptionalProject").val({$Think.session.CURRENT_PROJECT});
+	$("#OptionalProject").change(function(){
+		var ProjectId=$("#OptionalProject").val();
+		$.post("__APP__/Project/changeProject",{'ProjectId':ProjectId},function(data){
+			location.reload();
+		});
+	});
+	$("li a").click(function(){
+		$("a.active").removeClass("active");
+		$(this).parent().addClass("active");
+		$(this).addClass("active");
+	});
+});
+</script>
+<block name="extra-js"></block>
+</head>
+<body>
+
+	<div id="wrapper">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="index.html">珠海市智慧旅游平台</a>
+                    	
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> {$Think.session.user_name}</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{:U('Index/logout')}"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+						<center>
+							<h5>可选项目</h5>
+						</center>
+						<select class="form-control" id="OptionalProject">
+							<option value="0"></option>
+                            <option value="1">海泉湾</option>
+                            <option value="2">长隆海洋王国</option>
+                            <option value="3">石景山公园</option>
+                            <option value="4">海洋乐园</option>
+                            <option value="5">圆明新园</option>
+                        </select>
+
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 模块编辑<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{:U('Info/index')}">景点编辑<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                    <if condition="$Think.session.Info_PERMIT eq TRUE">
+                                        <li>
+                                            <a href="{:U('Info/index')}" id="Info">景点信息</a>
+                                        </li>
+                                    </if>
+                                    <if condition="$Think.session.Rooms_PERMIT eq TRUE">
+                                        <li>
+                                            <a href="{:U('Rooms/index')}" id="Rooms">住宿信息</a>
+                                        </li>
+                                    </if>
+                                    <if condition="$Think.session.Resturant_PERMIT eq TRUE">
+                                        <li>
+                                            <a href="{:U('Resturant/index')}" id="Resturant">餐饮信息</a>
+                                        </li>
+                                    </if>
+                                    <if condition="$Think.session.Photos_PERMIT eq TRUE">
+                                        <li>
+                                            <a href="{:U('Photos/index')}" id="Photos">相册信息</a>
+                                        </li>
+                                    </if>
+                                    </ul>
+                                </li>
+                            <if condition="$Think.session.Theme_PERMIT eq TRUE">
+                                <li>
+                                    <a href="{:U('Theme/index')}" id="Theme">主题编辑</a>
+                                </li>
+                            </if>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                            <if condition="$Think.session.User_PERMIT eq TRUE">
+                                <li>
+                                    <a href="{:U('User/index')}" id="User">用户管理</a>
+                                </li>
+                            </if>
+                            <if condition="$Think.session.LoginHistory_PERMIT eq TRUE">
+                                <li>
+                                    <a href="{:U('LoginHistory/index')}" id="LoginHistory">登录日志</a>
+                                </li>
+                            </if>
+                            <if condition="$Think.session.BackUp_PERMIT eq TRUE">
+                                <li>
+                                    <a href="{:U('Backup/index')}" id="BackUp">备份管理</a>
+                                </li>
+                            </if>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 报表管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                            <if condition="$Think.session.ChartAnalyse_PERMIT eq TRUE">
+                                <li>
+                                    <a href="#">报表分析</a>
+                                </li>
+                            </if>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bullhorn fa-fw"></i> 资讯管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                            <if condition="$Think.session.News_PERMIT eq TRUE">
+                                <li>
+                                    <a href="#">新闻管理</a>
+                                </li>
+                            </if>
+                            <if condition="$Think.session.Activity_PERMIT eq TRUE">
+                                <li>
+                                    <a href="#">活动管理</a>
+                                </li>
+                            </if>
+                            </ul>
+                        </li>
+                    <if condition="$Think.session.Contact_PERMIT eq TRUE">
+                        <li>
+                            <a href="#"><i class="fa fa-link fa-fw"></i> 联系管理</a>
+                        </li>
+                    </if>
+
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> 多级菜单<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">二级选项</a>
+                                </li>
+                                <li>
+                                    <a href="#">二级选项</a>
+                                </li>
+                                <li>
+                                    <a href="#">三级 <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">三级选项</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">三级选项</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">三级选项</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">三级选项</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+
+
+			<div id="page-wrapper">
+                <block name="main-content"></block>
+ 		     </div><!-- /wrapper -->
+ 		</div>
+
+	<div class="container-fluid" id="footer">
+		<p>© Company 2014</p>
+	</div>
+</body>
+</html>

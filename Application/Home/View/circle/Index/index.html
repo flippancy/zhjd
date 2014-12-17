@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <script src="__JS__/jquery-2.1.1.min.js"></script>
+  <title>{$place_name}</title>
+  <style>
+    .img-circle{height: 120px;width: 120px;}
+    p{margin-left: 40px;}
+  </style>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding:0px;device-width">
+      <div style="height:250px;">
+        <img src="__UPLOADS__/{$img_cover}" alt="" style="width:100%;height:100%;">
+      </div>
+      <div style="width:100%; height:300px;margin-top:10px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/info?place=$pid")}"><img src="__IMG__/hy1.jpg" alt="..." class="img-circle"><p>基本信息</p></a></div>
+            <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/photos?place=$pid")}"><img src="__IMG__/hy2.jpg" alt="..." class="img-circle"><p>相册</p></a></div>
+            <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/room?place=$pid")}"><img src="__IMG__/hy3.jpg" alt="..." class="img-circle"><p>住宿</p></a></div>
+          </div><br>
+        <div class="row" style="margin-top:30px">
+          <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/resturant?place=$pid")}"><img src="__IMG__/hy4.jpg" alt="..." class="img-circle"><p>餐饮</p></a></div>
+          <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/location?place=$pid")}"><img src="__IMG__/hy5.jpg" alt="..." class="img-circle"><p>地图</p></a></div>
+          <div class="col-xs-4 col-sm-4" ><a href="{:U("Index/news?place=$pid")}"><img src="__IMG__/hy6.jpg" alt="..." class="img-circle"><p>更多资讯</p></a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</body>
+
+</body>
+</html>

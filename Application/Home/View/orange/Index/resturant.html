@@ -1,0 +1,9 @@
+<extend name="Public:base_resturant"/>
+<block name="reslist">
+<volist name="res_arr" id="vo">
+	<li><a href="__URL__/resturant_info?place={$pid}&resid={$key}" data-prefetch="ture">
+        <h2>{$vo.res_name}</h2>
+        <p>{$vo.res_more}</p>
+    </a></li>
+</volist>
+</block>

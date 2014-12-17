@@ -1,0 +1,9 @@
+<extend name="Public:base_hotel"/>
+<block name="roomlist">
+<volist name="room_arr" id="vo">
+	<a href="__URL__/room_info?place={$pid}&roomid={$key}" data-prefetch="ture">
+	<li>
+        <h2>{$vo.room_name}</h2>
+    </a></li>
+</volist>
+</block>

@@ -1,0 +1,105 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/common/setCover.js"></script>
+<script src="__JS__/common/postEdit.js"></script>
+</block>
+		<block name="main-content">	
+	
+	<!-- start 住宿信息 -->
+		<div class="row">
+			<h1>住宿信息</h1>
+		  </div>
+		<div class="row">
+        	<form class="form-horizontal" role="form" method="post" id="room_form" action="__URL__/update?place={$place}&count={$room_count}">
+
+        	<volist name="room_arr" id="vo">
+				<h2>{$vo.room_name}</h2><a href="__URL__/delete?place={$place}&key={$key}">删除</a>
+				<div class="form-group">
+					<label for="room_cover" class="col-sm-2 control-label">房间封面</label>
+					<div class="col-sm-8"><input type="text" name="room_cover{$key}" id="room_cover{$key}" value="{$vo.room_cover}" required>&nbsp;
+					<a class="btn btn-default" data-toggle="modal" data-target="#coverModal" href="#" onclick="setCover.setId({$key})">选择封面</a></div>
+				</div>
+				<div class="form-group">
+   					 <label for="room_name" class="col-sm-2 control-label">房间名字</label>
+    					<div class="col-sm-8"><input type="text" class="form-control" id="room_name" value="{$vo.room_name}" name="room_name{$key}"></div>
+ 			  </div>
+ 			  <div class="form-group">
+   					 <label for="room_price" class="col-sm-2 control-label">价格</label>
+    					<div class="col-sm-8"><input type="text" class="form-control" id="room_price" value="{$vo.room_price}" name="room_price{$key}"></div>
+ 			  </div>
+				<div class="form-group">
+					<label for="information" class="col-sm-2 control-label">更多信息</label>
+					<div class="col-sm-8"><textarea class="form-control" rows="5" id="room_more" name="room_more{$key}">{$vo.room_more}</textarea></div>
+				</div>
+				<div class="form-group">
+					<label for="room_detail" class="col-sm-2 control-label">具体信息</label>
+					<div class="col-sm-8"><input class="form-control" type="text" name="room_detail{$key}" value="{$vo.room_detail}"></div>
+        		</div>
+			</volist>
+			<div class="row col-sm-8 col-sm-offset-9"><input class="btn btn-primary pushData" type="button" value="提交修改" id="pushData" name="2"/></div>
+				<div class="col-sm-8 col-sm-offset-9 error"><p id="room_form_err" style="color:red;"></p></div>
+			</form>
+		</div>
+	<!-- end 住宿信息 -->
+	<!-- start modal -->
+	<div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">选择封面</h4>
+		      </div>
+		      <div class="modal-body">
+		   			<volist name="img_arr" id="vo">
+		   				<if condition="$i-1 % 5 ==0"><p>
+						</if>
+		   				 <img src="__UPLOADS__/{$vo.img_url}" alt="" style="width:100px;height:100px;" id="coverImg{$key}" onclick="setCover.setCover({$key})">
+		   				 <if condition="$i % 5 ==0"></p>
+						</if>
+					</volist>
+		      </div>
+		  </div>
+		</div>
+	</div>
+	<!-- end modal -->
+
+	<div class="row">
+		<button class="btn btn-success" data-toggle="modal" data-target="#roomModal" href="#">添加信息</button>
+	</div>
+	<!-- start modal -->
+	<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">添加信息</h4>
+		      </div>
+		      <div class="modal-body">
+		   			<form class="form-horizontal" role="form" method="post" id="room_form" action="__URL__/insert?place={$place}">
+					<div class="form-group">
+	   					 <label for="room_name" class="col-sm-2 control-label">房间名字</label>
+	    					<div class="col-sm-8"><input type="text" required="required" class="form-control" id="room_name" value="" name="room_name"></div>
+	 			  </div>
+	 			  <div class="form-group">
+	   					 <label for="room_price" class="col-sm-2 control-label">价格</label>
+	    					<div class="col-sm-8"><input type="text" required="required" class="form-control" id="room_price" value="" name="room_price"></div>
+	 			  </div>
+					<div class="form-group">
+						<label for="room_more" class="col-sm-2 control-label">更多信息</label>
+						<div class="col-sm-8"><textarea class="form-control" required="required" rows="5" id="room_more" name="room_more"></textarea></div>
+					</div>
+					<div class="form-group">
+							<label for="room_detail" class="col-sm-2 control-label">具体信息</label>
+							<div class="col-sm-8"><input class="form-control" type="text" name="room_detail" value=""></div>
+		        	</div>
+					<input class="col-md-offset-9 btn btn-primary" type="submit" value="提交">
+					<input class="btn btn-default" type="button" data-dismiss="modal" value="取消">
+				</form>
+		      </div>
+		  </div>
+		</div>
+	</div>
+	<!-- end modal -->
+
+</block>
+

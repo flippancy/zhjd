@@ -1,0 +1,11 @@
+<extend name="Public:base_photo"/>
+<block name="images">
+<volist name="img_arr" id="vo">
+		<li class="box">
+          <a href="__UPLOADS__/{$vo.img_url}" class="swipebox" title="Fog">
+            <img src="__UPLOADS__/{$vo.img_url}" alt="image">
+          </a>
+          <p>{$vo.img_title}</p>
+        </li>
+</volist>
+</block>

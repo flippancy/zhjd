@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="__CSS__/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="__CSS__/theme.css">
+</head>
+<body>
+
+
+<div data-role="page">
+  <div data-role="header" id="header" data-theme="b" data-position="fixed">
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all"></a>
+
+    <h1><block name="name"></block></h1>
+    
+    <a role="button" data-role="button" href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-home"></a>
+  </div>
+
+  <div data-role="content" id="content">
+
+	<div id ="site_info">
+		<h2>基本信息</h2>
+		<block name="info"></block>
+	</div><hr>
+	
+	<div id ="site_ticket">
+		<h2>门票</h2>
+		<block name="ticket"></block>
+	</div><hr>
+	
+	<div id ="site_intro">
+		<h2>简介</h2>
+		<block name="introduction"></block>
+	</div><hr>
+	
+	<div id ="site_location">
+		<h2>位置</h2>
+		<block name="location"></block>
+	</div>
+
+    <div data-role="collapsible">
+        <h2>更多信息</h2>
+      	<block name="more"></block>
+    </div>
+
+  </div><!-- content -->
+
+  <div data-role="footer" id="footer">
+    <h1>©<block name="name"></block></h1>
+  </div>
+</div>
+<script src="__JS__/jquery-2.1.1.min.js"></script>
+<script src="__JS__/jquery.mobile-1.4.5.min.js"></script>
+<script src="__JS__/base.js"></script>
+</body>
+</html>

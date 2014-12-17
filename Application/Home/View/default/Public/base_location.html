@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+    <title>地图</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2&services=true">
+    </script>
+</head>
+<body>
+    <div id="container" style="height: 600px; width:100%;">
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map("container");                    // new Map
+    var point = new BMap.Point(<block name="pointx"></block>,<block name="pointy"></block>);      // Location, （经度, 纬度）
+    map.centerAndZoom(point, 30);                           // show Map
+
+    map.enableScrollWheelZoom();
+    map.enableKeyboard();
+</script>

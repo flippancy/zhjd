@@ -1,0 +1,98 @@
+
+#hamburger + .wrapper,
+wrapper:first-child
+{
+	padding-top: 100px;
+}
+.wrapper:last-child
+{
+	padding-bottom: 100px;
+}
+
+#hamburger + .wrapper:before,
+.wrapper:first-child:before
+{
+	content: '';
+	background: url( ../img/phone.png ) center center no-repeat transparent;
+	display: block;
+	width: 2300px;
+	height: 1835px;
+	margin-left: -400px;
+	position: absolute;
+	left: 50%;
+	top: -1150px;
+	z-index: -1;
+}
+
+
+/*
+	LAYOUT
+*/
+#hamburger
+{
+	display: block;
+	width: 40px;
+	height: 36px;
+	margin: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+#hamburger:before,
+#hamburger:after,
+#hamburger span
+{
+	background: #fff;
+	content: '';
+	display: block;
+	width: 30px;
+	height: 6px;
+	position: absolute;
+	left: 5px;
+}
+#hamburger:before
+{
+	top: 5px;
+}
+#hamburger:after
+{
+	bottom: 5px;
+}
+#hamburger span
+{
+	top: 50%;
+	margin-top: -3px;
+}
+
+@media all and (min-width: 1430px)
+{
+	#hamburger {
+		display: none;
+	}
+}
+
+/* Hamburger animation */
+#hamburger:before,
+#hamburger:after,
+#hamburger span
+{
+	transition: none 0.5s ease 0.5s;
+	transition-property: transform, top, bottom, left, opacity;
+}
+html.mm-opening #hamburger span
+{
+	left: -50px;
+	opacity: 0;
+}
+html.mm-opening #hamburger:before
+{
+	transform: rotate( 45deg );
+	top: 15px;
+}
+html.mm-opening #hamburger:after
+{
+	transform: rotate( -45deg );
+	bottom: 15px;
+}
+

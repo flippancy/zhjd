@@ -1,0 +1,39 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/common/setCover.js"></script>
+<script src="__JS__/common/postEdit.js"></script>
+</block>
+<block name="main-content">
+		<table  class="table table-striped">
+    	<caption>数据库备份管理</caption>
+		<thead>
+        	<tr>
+				<th>备份文件名</th>
+				<th>备份时间</th>
+				<th>大小</th>
+				<th>操作</th>
+            </tr>
+		</thead>
+        <tbody>
+        <volist name="list" id="vo">
+        	<tr>
+            	<td>{$vo.name}</td>
+                <td>{$vo.time}</td>
+                <td>{$vo.size}</td>
+                <td><a href="">编辑</a> <a href="">删除</a> <a href="">备份</a> <a href="">还原</a></td>
+            </tr>
+        </volist>
+        </tbody>
+		</table>
+
+		<a href="{:U('Backup/tablist')}">数据库信息显示</a><br>
+		<a href="{:U('Backup/backall')}">数据库备份</a>
+		<form action="{:U('Backup/recover')}" enctype="multipart/form-data" method="get" >
+	        <div class="row">
+	        <div class="col-sm-6">
+				<input type="file" name="file"required="required" id="file">
+				<input class="btn btn-primary" type="submit" value="提交还原数据库文件">
+			</div>
+			</div>
+		</form>
+</block>

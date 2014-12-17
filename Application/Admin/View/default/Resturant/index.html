@@ -1,0 +1,95 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/common/setCover.js"></script>
+<script src="__JS__/common/postEdit.js"></script>
+</block>
+<block name="main-content">
+		<div class="row">
+		<!-- start 餐饮信息 -->
+		        <h1>餐饮信息</h1>
+		        <form class="form-horizontal" role="form" method="post" id="res_form" action="__URL__/update?place={$place}&count={$res_count}">
+		        	<volist name="res_arr" id="vo">
+						<h2>{$vo.res_name}</h2><a href="__URL__/delete?place={$place}&key={$key}">删除</a>
+						<div class="form-group">
+		   					 <label for="room_name" class="col-sm-2 control-label">餐厅名字</label>
+		    					<div class="col-sm-8"><input type="text" class="form-control" id="res_name" value="{$vo.res_name}" name="res_name{$key}"></div>
+		 			    </div>
+
+						<div class="form-group">
+							<label for="information" class="col-sm-2 control-label">简介</label>
+							<div class="col-sm-8"><textarea class="form-control" rows="5" id="res_more" name="res_introduction{$key}">{$vo.res_introduction}</textarea></div>
+						</div>
+
+						<div class="form-group">
+		   					 <label for="room_time" class="col-sm-2 control-label">营业时间</label>
+		    					<div class="col-sm-8"><input type="text" class="form-control" id="res_time" value="{$vo.res_time}" name="res_time{$key}"></div>
+		 			    </div>
+
+		 			    <div class="form-group">
+		   					 <label for="room_location" class="col-sm-2 control-label">餐厅地址</label>
+		    					<div class="col-sm-8"><input type="text" class="form-control" id="res_location" value="{$vo.res_location}" name="res_location{$key}"></div>
+		 			    </div>
+
+		 			    <div class="form-group">
+		   					 <label for="room_feature" class="col-sm-2 control-label">餐厅特色</label>
+		    					<div class="col-sm-8"><input type="text" class="form-control" id="res_feature" value="{$vo.res_feature}" name="res_feature{$key}"></div>
+		 			    </div>
+
+		 			    <div class="form-group">
+		   					 <label for="room_notice" class="col-sm-2 control-label">注意事项</label>
+		    					<div class="col-sm-8"><input type="text" class="form-control" id="res_notice" value="{$vo.res_notice}" name="res_notice{$key}"></div>
+		 			    </div>
+
+					</volist>
+					<div class="col-sm-8 col-sm-offset-9"><input class="btn btn-primary pushData" type="button" value="提交修改" id="pushData" name="3"/></div>
+					<div class="col-sm-8 col-sm-offset-9 error"><p id="res_form_err" style="color:red;"></p></div>
+				</form>
+		<!-- end 餐饮信息 -->
+			<div class="row">
+				<button class="btn btn-success" data-toggle="modal" data-target="#resModal" href="#">添加信息</button>
+			</div>
+			<!-- start modal -->
+			<div class="modal fade" id="resModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title" id="myModalLabel">添加信息</h4>
+			      		</div>
+					      <div class="modal-body">
+					   			<form class="form-horizontal" role="form" method="post" id="room_form" action="__URL__/insert?place={$place}">
+								<div class="form-group">
+				   					 <label for="res_name" class="col-sm-2 control-label">餐厅名字</label>
+				    					<div class="col-sm-8"><input type="text" required="required" class="form-control" id="res_name" value="" name="res_name"></div>
+				 			  </div>
+								<div class="form-group">
+									<label for="res_introduction" class="col-sm-2 control-label">简介</label>
+									<div class="col-sm-8"><textarea class="form-control" required="required" rows="5" id="res_introduction" name="res_introduction"></textarea></div>
+								</div>
+								<div class="form-group">
+				   					 <label for="room_time" class="col-sm-2 control-label">营业时间</label>
+				    					<div class="col-sm-8"><input type="text" class="form-control" id="res_time"  name="res_time"></div>
+				 			    </div>
+				 			    <div class="form-group">
+				   					 <label for="room_location" class="col-sm-2 control-label">餐厅地址</label>
+				    					<div class="col-sm-8"><input type="text" class="form-control" id="res_location" name="res_location"></div>
+				 			    </div>
+				 			    <div class="form-group">
+				   					 <label for="room_feature" class="col-sm-2 control-label">餐厅特色</label>
+				    					<div class="col-sm-8"><input type="text" class="form-control" id="res_feature" name="res_feature"></div>
+				 			    </div>
+				 			    <div class="form-group">
+				   					 <label for="room_notice" class="col-sm-2 control-label">注意事项</label>
+				    					<div class="col-sm-8"><input type="text" class="form-control" id="res_notice" name="res_notice"></div>
+				 			    </div>
+								<input class="col-md-offset-9 btn btn-primary" type="submit" value="提交">
+								<input class="btn btn-default" type="button" data-dismiss="modal" value="取消">
+							</form>
+					      </div>
+			  			</div>
+				</div>
+			</div>
+			<!-- end modal -->
+		</div>
+</block>
+

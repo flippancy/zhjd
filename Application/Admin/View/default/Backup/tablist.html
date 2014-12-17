@@ -1,0 +1,32 @@
+<extend name="Public:admin"/>
+<block name="extra-js">
+<script src="__JS__/common/setCover.js"></script>
+<script src="__JS__/common/postEdit.js"></script>
+</block>
+		<block name="main-content">	
+	<table  class="table table-striped">
+    <caption>数据库信息</caption>
+		<thead>
+        	<tr>
+				<th>名称</th>
+				<th>行数</th>
+				<th>创建时间</th>
+				<th>最近更新时间</th>
+				<th>操作</th>
+            </tr>
+		</thead>
+        <tbody>
+        <volist name="list" id="vo">
+        	<tr>
+            	<td>{$vo.Name}</td>
+                <td>{$vo.Rows}</td>
+                <td>{$vo.Create_time}</td>
+                <td>{$vo.Update_time}</td>
+                <td><a href="">编辑</a> <a href="">删除</a> <a href="">备份</a> <a href="">还原</a></td>
+            </tr>
+        </volist>
+        </tbody>
+	</table>
+	<a href="{:U('Backup/index')}">返回</a><br>
+
+</block>
